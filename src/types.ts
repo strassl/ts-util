@@ -25,5 +25,16 @@ export function cast<T>(type: Constructor<T>, object: unknown): T {
   return <T>object;
 }
 
+export type Nullable<T> = {
+  [P in keyof T]: T[P] | null | undefined;
+};
+
 export type UnPromisify<T> = T extends Promise<infer U> ? U : never;
 export type UnArrayfy<T> = T extends Array<infer U> ? U : never;
+
+export function hasOwnProperty<X extends unknown, Y extends PropertyKey>(
+  obj: X,
+  prop: Y,
+): obj is X & Record<Y, unknown> {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}

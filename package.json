@@ -10,7 +10,7 @@
     "build": "tsc --build",
     "serve": "ts-node ./src",
     "start": "node ./dist",
-    "lint": "tsc --noEmit && eslint \"**/*.ts\" --quiet --fix",
+    "lint": "tsc --noEmit && eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
     "test": "jest"
   },
   "devDependencies": {

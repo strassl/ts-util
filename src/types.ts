@@ -32,9 +32,6 @@ export type Nullable<T> = {
 export type UnPromisify<T> = T extends Promise<infer U> ? U : never;
 export type UnArrayfy<T> = T extends Array<infer U> ? U : never;
 
-export function hasOwnProperty<X extends unknown, Y extends PropertyKey>(
-  obj: X,
-  prop: Y,
-): obj is X & Record<Y, unknown> {
+export function hasOwnProperty<X, Y extends PropertyKey>(obj: X, prop: Y): obj is X & Record<Y, unknown> {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }

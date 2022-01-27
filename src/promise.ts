@@ -3,6 +3,6 @@ export function sleep(ms: number): Promise<undefined> {
 }
 
 export async function waitAtLeast<T>(promise: Promise<T>, minMs: number): Promise<T> {
-  const [result] = await Promise.all<T, undefined>([promise, sleep(minMs)]);
+  const [result] = await Promise.all([promise, sleep(minMs)]);
   return result;
 }
